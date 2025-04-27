@@ -24,8 +24,13 @@ class TestController {
 
     val logger: Logger = LoggerFactory.getLogger(TestController::class.java)
 
+feature/enable-date-time
  @GetMapping(value = ["/date-time"], produces = ["application/json"])
  @Operation(
+
+    @GetMapping(value = ["/date-time"], produces = ["application/json"])
+    @Operation(
+main
         operationId = "date-time",
         summary = "Get current date and time",
         tags = ["test"])
