@@ -1,0 +1,4 @@
+#P2 clients store their default bundle pool locations here
+#Mon Feb 18 19:52:24 CET 2019
+org.eclipse.oomph.setup.ui=/Users/zofia/.p2/pool
+org.eclipse.oomph.setup.ui\:agent=/Users/zofia/.p2
