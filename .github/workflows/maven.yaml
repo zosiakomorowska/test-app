@@ -117,7 +117,7 @@ jobs:
         with:
           driver-opts: network=host
       - name: Download JAR file
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: app
           path: target/
