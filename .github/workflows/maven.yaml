@@ -91,7 +91,7 @@ jobs:
         with:
           java-version: '16'
           distribution: 'temurin'
-          cache: maven
+    
       - name: Building version
         run: echo ${{ needs.calculate-version.outputs.version }}
       - run: sed -i -e "s/<version>local<\/version>/<version>${{ needs.calculate-version.outputs.version }}<\/version>/" pom.xml
