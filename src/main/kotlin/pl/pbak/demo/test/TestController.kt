@@ -24,19 +24,17 @@ class TestController {
 
     val logger: Logger = LoggerFactory.getLogger(TestController::class.java)
 
-feature/enable-date-time
- @GetMapping(value = ["/date-time"], produces = ["application/json"])
- @Operation(
-
     @GetMapping(value = ["/date-time"], produces = ["application/json"])
     @Operation(
-main
         operationId = "date-time",
         summary = "Get current date and time",
-        tags = ["test"])
-    @ApiResponses(value = [
-        ApiResponse(responseCode = "201", description = "new UUID was generated"),
-    ])
+        tags = ["test"]
+    )
+    @ApiResponses(
+        value = [
+            ApiResponse(responseCode = "201", description = "new UUID was generated")
+        ]
+    )
     fun dateTime(): ResponseEntity<String> {
         val currentDateTime = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
@@ -47,12 +45,15 @@ main
 
     @GetMapping(value = ["/uuid"], produces = ["application/json"])
     @Operation(
-            operationId = "generateRandomUuid",
-            summary = "Generates random UUID",
-            tags = ["test"])
-    @ApiResponses(value = [
-        ApiResponse(responseCode = "201", description = "new UUID was generated"),
-    ])
+        operationId = "generateRandomUuid",
+        summary = "Generates random UUID",
+        tags = ["test"]
+    )
+    @ApiResponses(
+        value = [
+            ApiResponse(responseCode = "201", description = "new UUID was generated")
+        ]
+    )
     fun generateUuid(): ResponseEntity<UUID> {
         val uuid = UUID.randomUUID()
         logger.info("Generate uuid: $uuid")
@@ -61,12 +62,15 @@ main
 
     @GetMapping(value = ["/uuid-error"], produces = ["application/json"])
     @Operation(
-            operationId = "generateRandomUuidWithError",
-            summary = "Generates random UUID with error",
-            tags = ["test"])
-    @ApiResponses(value = [
-        ApiResponse(responseCode = "201", description = "new UUID was generated"),
-    ])
+        operationId = "generateRandomUuidWithError",
+        summary = "Generates random UUID with error",
+        tags = ["test"]
+    )
+    @ApiResponses(
+        value = [
+            ApiResponse(responseCode = "201", description = "new UUID was generated")
+        ]
+    )
     fun generateUuidWithError(): ResponseEntity<UUID> {
         val uuid = UUID.randomUUID()
         logger.info("Generating uuid: $uuid")
@@ -75,9 +79,7 @@ main
             throw NotImplementedError("test error")
         } catch (e: Error) {
             logger.error("some error message", e)
-            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
+            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build()
         }
-
-        return ResponseEntity.of(Optional.of(uuid))
     }
 }
